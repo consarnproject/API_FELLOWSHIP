@@ -16,9 +16,9 @@ How to interact with your API:
 
 In order to interact with the API the user would be able to make use of the login credentials page. then from the form that is on the landing page, be able to populate the database by creatin a list of fruits that is visible on the UI interface.
 
-How to run tests (testing framworks):
+How to run tests (testing frameworks):
 
-The testing fraemworks used to test this application are;
+The testing frameworks used to test this application are;
 1. pytest (frontend)
 2. cypress (backend)
 3. jest (backend)
