@@ -15,3 +15,15 @@ The backend FastAPI and frontend react applications are supposed to be in sepera
 How to interact with your API:
 
 In order to interact with the API the user would be able to make use of the login credentials page. then from the form that is on the landing page, be able to populate the database by creatin a list of fruits that is visible on the UI interface.
+
+How to run tests (testing framworks):
+
+The testing fraemworks used to test this application are;
+1. pytest (frontend)
+2. cypress (backend)
+3. jest (backend)
+
+Depending on the test that you would like to run, you could use one of the following commands in the root directory of the application:
+1. to run backend tests - pytest -q <filename>.py
+2. to run frontend tests - npx cypress open OR npm test 
+
