@@ -27,3 +27,4 @@ Depending on the test that you would like to run, you could use one of the follo
 1. to run backend tests - pytest -q <filename>.py
 2. to run frontend tests - npx cypress open OR npm test 
 
+![Screen Shot 2025-06-23 at 5 01 55 PM](https://github.com/user-attachments/assets/6f6b6837-73da-432d-b942-2c3ed9f3a291)
