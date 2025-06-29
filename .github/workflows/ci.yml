@@ -10,16 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     
-    services:
-      mongodb:
-        image: mongo:latest
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd "mongosh --eval 'db.adminCommand({ping: 1})'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
     - uses: actions/checkout@v4
@@ -34,21 +24,19 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Wait for MongoDB
-      run: |
-        sleep 10
+   
         
     - name: Run unit tests
       env:
         CI: true
       run: |
-        python -m pytest tests.py -v
+        python -m pytest test_api.py -v
         
     - name: Run coverage
       env:
         CI: true
       run: |
-        coverage run --source=main,db,models -m unittest tests.py
+        coverage run --source=main,db,models -m unittest test_unit.py
         coverage report -m
         coverage xml
         
@@ -77,16 +65,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     
-    services:
-      mongodb:
-        image: mongo:latest
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd "mongosh --eval 'db.adminCommand({ping: 1})'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+
 
     steps:
     - uses: actions/checkout@v4
@@ -101,9 +80,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Wait for MongoDB
-      run: |
-        sleep 10
+
         
     - name: Start FastAPI server
       env:
@@ -126,3 +103,12 @@ jobs:
         CI: true
         KEPLOY_API_KEY: ${{ secrets.KEPLOY_API_KEY }}
       run: | 
+
+    - name: Upload Keploy Test Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: keploy-reports
+        path: |
+          keploy/
+          test-reports/
