@@ -30,7 +30,7 @@ jobs:
       env:
         CI: true
       run: |
-        python -m pytest test_api.py -v
+        python -m pytest test_unit.py -v
         
     - name: Run coverage
       env:
