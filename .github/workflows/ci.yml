@@ -4,4 +4,4 @@
 
 - name: Run Keploy Test Suite
   run: |
-    export KEPLOY_API_KEY=Q1U/r/LYbSTVyAHbEg== && keploy test-suite --app=f3fac2ae-6904-4572-9903-623568a817bf --base-path https://app.keploy.io --cloud
+    export KEPLOY_API_KEY=Q1U/r/LYbSTVyAHbEg== && keploy test-suite --app=f3fac2ae-6904-4572-9903-623568a817bf --base-path http://localhost:8000 --cloud
