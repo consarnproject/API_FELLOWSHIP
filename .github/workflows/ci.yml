@@ -1,4 +1,4 @@
-- name: Install Keploy CLI
+ name: Install Keploy CLI
   run: |
     curl --silent -L https://keploy.io/ent/install.sh | bash
 
